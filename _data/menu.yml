@@ -1,0 +1,37 @@
+menu_left:
+  - title: Overview
+    url: /
+menu_right:
+  - title: Bots
+    url: "#"
+    subitems: 
+    - title: Rome Arrival
+      url: /bots/rome-arrival
+    - title: Rome Departure
+      url: /bots/rome-departure
+    - title: Munich Arrival
+      url: /bots/munich-arrival
+    - title: Paris Arrival
+      url: /bots/paris-arrival
+    - title: Paris Departure
+      url: /bots/paris-departure
+    - title: Antalya Arrival
+      url: /bots/antalya-arrival
+    - title: Antalya Departure
+      url: /bots/antalya-departure
+    - title: Athens Arrival
+      url: /bots/athens-arrival
+    - title: Athens Departure
+      url: /bots/athens-departure
+    - title: Barcelona Arrival
+      url: /bots/barcelona-arrival
+    - title: Barcelona Departure
+      url: /bots/barcelona-departure
+    - title: Berlin Arrival
+      url: /bots/berlin-arrival
+    - title: Berlin Departure
+      url: /bots/berlin-departure
+    - title: Copenhagen Arrival
+      url: /bots/copenhagen-arrival
+    - title: Copenhagen Departure
+      url: /bots/copenhagen-departure

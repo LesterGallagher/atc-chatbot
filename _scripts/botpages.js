@@ -1,0 +1,15 @@
+touch rome-arrival.md
+touch rome-departure.md
+touch munich-arrival.md
+touch paris-arrival.md
+touch paris-departure.md
+touch antalya-arrival.md
+touch antalya-departure.md
+touch athens-arrival.md
+touch athens-departure.md
+touch barcelona-arrival.md
+touch barcelona-departure.md
+touch berlin-arrival.md
+touch berlin-departure.md
+touch copenhagen-arrival.md
+touch copenhagen-departure.md
