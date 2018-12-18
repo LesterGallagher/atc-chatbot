@@ -3,7 +3,7 @@ menu_left:
     url: /
 menu_right:
   - title: Bots
-    url: "#"
+    url: "/bots"
     subitems: 
     - title: Rome Arrival
       url: /bots/rome-arrival

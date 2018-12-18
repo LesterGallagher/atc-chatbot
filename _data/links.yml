@@ -1,8 +1,7 @@
-- title: Newsletter
-  url: /newsletter
-- title: Return & Exchange
-  url: /return & exchange
-- title: Privacy Policiy
+- title: Privacy Policy
   url: /privacy-policy
 - title: Terms of Service
   url: /terms-of-service
+- title: Blog (external)
+  external: true
+  url: https://esstudio.site/blog

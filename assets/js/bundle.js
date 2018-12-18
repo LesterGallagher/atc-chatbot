@@ -1,5 +1,6 @@
 ---
 ---
+{% include_relative natural.min.js %}
 
 var navbar = document.querySelector('#navbar');
 
@@ -206,6 +207,4 @@ if (searchOverlapSearch) {
         hitEnter.classList.remove('show');
     });
 }
-
-
 

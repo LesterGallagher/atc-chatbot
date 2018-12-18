@@ -9,12 +9,12 @@
             <div class="col-xs-12">
                 <ul>
                     {% for item in site.data.links %}
-                    <li><b><a href="{{ item.url }}">{{ item.title }}</a></b></li>{% endfor %}
+                    <li><b><a{% if item.external %} target="_blank"{% endif %} href="{{ item.url }}">{{ item.title }}</a></b></li>{% endfor %}
                 </ul>
             </div>
         </div>
         <div class="row copyright-footer">
-            &copy; effy violet organic apparel 2018
+            &copy; Sem Postma 2018
         </div>
     </div>
 </footer>

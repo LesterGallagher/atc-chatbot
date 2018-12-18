@@ -1,0 +1,17 @@
+---
+layout: page
+title: Bots
+permalink: /bots/
+---
+
+<h3>Bots</h3>
+
+{% for bot in site.bots %}
+    <div class="col-xs-12 col-sm-6">
+        <div class="style-bg" style="margin: 20px; padding: 20px; background-image: url('/assets/img/airports/airport{{ forloop.index | modulo: 11 | plus: 1 }}.jpg')">
+            <h5>{{ bot.title }}</h5>
+            <br>
+            <a class="btn-default" href="{{ bot.url }}">Start</a>
+        </div>
+    </div>
+{% endfor %}

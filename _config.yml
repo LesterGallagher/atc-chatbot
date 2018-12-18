@@ -1,23 +1,7 @@
 ---
-title: Effy Violet
+title: ATC Chatbot
 timezone: Europe/Amsterdam
 collections:
-  posts:
-    title: Posts
-    permalink: /:year/:month/:day/:title/
-    output: false
-  shopcollections:
-    title: Collections
-    permalink: /store/collections/:title/
-    output: true
-  categories:
-    title: Categories
-    permalink: /store/:categories/
-    output: true
-  articles:
-    title: Articles
-    permalink: /store/:categories/:title/
-    output: true
   bots:
     title: Bots
     permalink: /bots/:title/
@@ -25,56 +9,9 @@ collections:
 defaults:
 - scope:
     path: ''
-    type: posts
-  values:
-    layout: post
-    has_comments: true
-    image: ''
-    description: ''
-- scope:
-    path: ''
-    type: shopcollections
-  values:
-    layout: collection
-    image: 
-    hide: false
-- scope:
-    path: ''
-    type: categories
-  values:
-    layout: categoriy
-- scope:
-    path: ''
-    type: articles
-  values:
-    layout: article
-    sizes: [S, M, L]
-- scope:
-    path: ''
     type: bots
   values:
     layout: bot
-currency: €
-has_comments: true
-disqus: https-esstudio-site
-feedburner: https://feeds.feedburner.com/echosierrastudio
-share:
-- facebook
-- twitter
-- tumblr
-- pinterest
-- reddit
-- google
-- tumblr
-- email
-- pinterest
-- linkedin
-- xing
-- whatsapp
-- hackernews
-- vk
-- telegram
-volledige-titel: Echo Sierra Studio
 image_src: "/assets/img/image_src.png"
 logo: "/assets/img/image_src.png"
 keywords: Polyism Studio Sem Postma Echo Sierra Studio Web Software Code Programming
@@ -84,32 +21,6 @@ exclude:
 description: Web, app and tooling development and graphic design studio. View all
   websites made by Echo Sierra Studio and contact us if your interested.
 theme_color: "#fb5353"
-disqus: https-esstudio-site
-baseurl: 
-dribbble_username: 
-facebook_username: 
-flickr_username: 
-github_username: 
-instagram_username: 
-linkedin_username: 
-pinterest_username:
-twitter_username:
-youtube_username:
-disqus_username:
-googleplus_username: 
-rss: true
-facebook:
-  app_id:
-  publisher:
-  admins: 
-webmaster_verifications:
-  google: 
-  bing: 
-  alexa: 
-  yandex: 
-  baidu: 
-twitter:
-  username: esstudio_site
 sass:
   style: compressed
   sass_dir: _sass

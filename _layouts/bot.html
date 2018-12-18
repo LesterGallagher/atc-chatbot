@@ -1,18 +1,140 @@
 ---
 layout: page
 ---
-<div class="col-xs-12 col-sm-6">
-    <div style="padding-bottom: 80px"></div>
-    <div class="overflow-hidden">
-        <img class="responsive zoom-effect" src="{{ page.image }}" alt="{{ page.description }}">
-    </div>
+{% assign bot = site.data.bots | where: "name", page.title | first %}
+<h1>{{ page.title }}</h1>
+<div>
+    <div style="max-height: 100vh" id="messages-wrapper"></div>
+    <form action="#" id="input-wrapper">
+        <input type="text" name="message-input" id="message-input">
+        <button type="submit">Send</button>
+    </form>
 </div>
-<div class="col-xs-12 col-sm-6">
-    <div style="padding-bottom: 80px"></div>
-    <p><b>{{ page.title }}</b></p>
-    <p><b>{{ site.currency }} {{ page.price }}</b></p>
-</div>
-<div class="col-xs-12">
-    {{ page.title }}
-    {{ site.data.bots | where: "name", page.title | jsonify }}
-</div>
+{% include share.html %}
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+
+        const bot = ({{ bot | jsonify}});
+
+        function _toConsumableArray(arr) {
+            if (Array.isArray(arr)) {
+                for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) {
+                arr2[i] = arr[i];
+                }
+                return arr2;
+            } else {
+                return Array.from(arr);
+            }
+        }
+
+        console.log(bot);
+
+        var stemmer = natural.LancasterStemmer;
+        var trainingdata = bot.trainingdata;
+        var classifierObj = bot.classifier;
+
+        var classifier = natural.LogisticRegressionClassifier.restore(
+            classifierObj,
+            stemmer
+        );
+
+        var inputWrapper = document.getElementById('input-wrapper');
+        var messageWrapper = document.getElementById("messages-wrapper");
+        var messageInput = document.getElementById("message-input");
+        var messageInputBtn = document.getElementById("message-input-button");
+
+        inputWrapper.addEventListener("submit", function(e) {
+            e.preventDefault();
+            contact(messageInput.value);
+            messageInput.value = '';
+        });
+
+        contact(bot.trainingdata.voicemessage0.questions[0]);
+
+        function contact(phrase) {
+            (function() {
+                var container = document.createElement("div");
+                container.setAttribute("class", "message-container darker");
+                var img = document.createElement("img");
+                img.setAttribute("src", "/assets/img/airplane.png");
+                img.setAttribute("alt", "Avatar");
+                // img.setAttribute("class", "right");
+                container.appendChild(img);
+                var text = document.createElement("p");
+                text.appendChild(document.createTextNode(phrase));
+                container.appendChild(text);
+                var small = document.createElement("span");
+                small.setAttribute("class", "time-left");
+                small.appendChild(document.createTextNode(bot.generaldata.flightnumber[0]));
+                container.appendChild(small);
+                messageWrapper.appendChild(container);
+            })();
+            handleMessage(function(answer) {
+                var container = document.createElement("div");
+                container.setAttribute("class", "message-container");
+                var img = document.createElement("img");
+                img.setAttribute("src", "/assets/img/airport.png");
+                img.setAttribute("alt", "Avatar");
+                img.setAttribute("class", "right");
+                container.appendChild(img);
+                var text = document.createElement("p");
+                text.appendChild(document.createTextNode(answer));
+                container.appendChild(text);
+                var small = document.createElement("span");
+                small.setAttribute("class", "time-left");
+                small.appendChild(document.createTextNode("ATC"));
+                container.appendChild(small);
+                messageWrapper.appendChild(container);
+            }, phrase);
+        }
+
+        function interpret(phrase) {
+            // console.log('interpret', phrase);
+            var guesses = classifier.getClassifications(phrase.toLowerCase());
+            // console.log('guesses', guesses);
+
+            var bestprob = Math.max.apply(
+                Math,
+                _toConsumableArray(
+                guesses.map(function(x) {
+                    return x.value;
+                })
+                )
+            );
+
+            // ADD RANDOMNESS
+            guesses.map(function(x) {
+                return (x.value += Math.random() * 0.4);
+            });
+
+            var guess = guesses.reduce(function(x, y) {
+                return x && x.value > y.value ? x : y;
+            });
+            return {
+                probabilities: guesses,
+                bestprob: bestprob,
+                guess: guess.label
+            };
+        };
+
+        function rnd(arr) {
+            return arr[Math.floor(Math.random() * arr.length)];
+        };
+
+        function handleMessage(reply, text) {
+            var interpretation = interpret(text);
+            // console.log('InternChatBot heard: ', message.text);
+            // console.log('InternChatBot interpretation: ', interpretation);
+            if (interpretation.bestprob < 0.5) {
+                reply("Sorry, I'm not sure what you mean");
+            } else if (interpretation.bestprob < 0.7) {
+                reply("Uhh..  " + rnd(trainingdata[interpretation.guess].answers));
+            } else if (interpretation.guess && trainingdata[interpretation.guess]) {
+                // console.log('Found response');
+                reply(rnd(trainingdata[interpretation.guess].answers));
+            }
+        };
+
+    });
+
+</script>

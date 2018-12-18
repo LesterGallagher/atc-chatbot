@@ -1,34 +1,35 @@
----
-# this ensures Jekyll reads the file to be transformed into CSS later
-# only Main files contain this front matter, not partials.
----
-
+--- 
+# this ensures Jekyll reads the file to be transformed into CSS later # only Main files contain this front matter, not partials. 
+--- 
 @import 'bootstrap.min';
 @import 'circular-std';
-
 $primary_color: #ce9d9d;
 $link_color: $primary_color;
 $sidebar_width: 270px;
 $sidebar_sections_spacing: 40px;
 $navbar_title_fontsize: 40px;
-
-*, *::after, *::before {
+*,
+*::after,
+*::before {
     box-sizing: border-box;
 }
 
 body {
-    font-family: "CircularStd","Open sans",Helvetica,Arial,sans-serif;
+    font-family: "CircularStd", "Open sans", Helvetica, Arial, sans-serif;
     overflow-x: hidden;
 }
 
-::selection { background: $primary_color; }
+::selection {
+    background: $primary_color;
+}
 
 a {
     color: inherit;
     text-decoration: underline;
 }
 
-a:hover, a:focus {
+a:hover,
+a:focus {
     color: inherit;
     text-decoration: underline;
 }
@@ -36,18 +37,23 @@ a:hover, a:focus {
 h1 {
     font-size: 7em;
 }
+
 h2 {
     font-size: 4em;
 }
+
 h3 {
     font-size: 3em;
 }
+
 h4 {
     font-size: 2.5em;
 }
+
 h5 {
     font-size: 2em;
 }
+
 h6 {
     font-size: 1.5em;
 }
@@ -57,7 +63,8 @@ img.responsive {
 }
 
 img.zoom-effect {
-    transition: transform .2s; /* Animation */
+    transition: transform .2s;
+    /* Animation */
     &:hover {
         transform: scale(1.3);
     }
@@ -105,11 +112,10 @@ img.zoom-effect {
     padding: 30px;
     transition: left 200ms ease-in;
     overflow-y: auto;
-
     .search {
         width: 100%;
         padding-left: 35px;
-        background-image: url('data:image/svg+xml;utf8,{% include svg/search.svg %}')!important;
+        background-image: url('data:image/svg+xml;utf8,{% include svg/search.svg %}') !important;
         background-size: 20px 20px;
         background-repeat: no-repeat;
         background-position: 5px 3px;
@@ -119,16 +125,13 @@ img.zoom-effect {
         border-bottom: 2px solid #333;
         margin-bottom: $sidebar_sections_spacing;
     }
-
     .menu-items {
         font-size: 20px;
         margin-bottom: $sidebar_sections_spacing;
     }
-
     .other-links {
         font-size: 16px;
     }
-
     a {
         text-decoration: none;
         color: inherit;
@@ -156,11 +159,9 @@ img.zoom-effect {
     margin-left: -100px;
     padding-left: 100px;
     position: relative;
-
     &.undocked {
         background-color: #fff;
     }
-
     .bars {
         display: block;
         float: left;
@@ -173,19 +174,15 @@ img.zoom-effect {
             height: 7px;
         }
     }
-
     .menu-left .link-item {
         margin-left: 15px;
     }
-
     .menu-right .link-item {
         margin-right: 15px;
     }
-
     .link-item {
         display: inline-block;
         position: relative;
-
         a {
             text-decoration: none;
             white-space: nowrap;
@@ -207,20 +204,16 @@ img.zoom-effect {
             background-color: #fff;
         }
     }
-
     .nav-items {
         margin: 0;
         padding: 20px;
     }
-
-    .link-item > .nav-items {
+    .link-item>.nav-items {
         position: absolute;
         transition: opacity 200ms ease-out;
-        opacity: 0; 
+        opacity: 0;
         height: 0;
-        overflow: hidden;
-        // display: none;
-
+        overflow: hidden; // display: none;
         .link-item {
             margin: 0;
             display: block;
@@ -229,28 +222,23 @@ img.zoom-effect {
         .link-item:first-of-type {
             margin-top: 0;
         }
-
-        .link-item > .nav-items {
+        .link-item>.nav-items {
             left: 100%;
             top: -30px;
             padding-left: 40px;
         }
-        .link-item > .nav-items::before {
+        .link-item>.nav-items::before {
             left: 20px;
         }
     }
-
-    .link-item:hover > .nav-items {
+    .link-item:hover>.nav-items {
         opacity: 1;
         height: auto;
-        overflow: visible;
-        // display: block;
+        overflow: visible; // display: block;
     }
-
     .logo {
         margin: 0;
         font-size: 40px;
-
         a {
             text-decoration: none;
             color: inherit;
@@ -282,7 +270,9 @@ img.zoom-effect {
 .search-overlap {
     // display: none;
     position: fixed;
-    top: 0; left: 0; right: 0;
+    top: 0;
+    left: 0;
+    right: 0;
     background: #fff;
     z-index: 3;
     height: 0;
@@ -290,20 +280,17 @@ img.zoom-effect {
     transition: height 200ms ease;
     text-align: center;
     opacity: .9;
-    
     #search-overlap-close {
         padding: 10px;
         margin: -10px;
         font-size: 30px;
         text-decoration: none;
     }
-
     .type-to-search {
         margin-top: 40vh;
         margin-bottom: 20px;
         text-transform: uppercase;
     }
-
     input {
         background: transparent;
         outline: none;
@@ -334,8 +321,6 @@ img.zoom-effect {
     top: 21px;
 }
 
-
-
 .nopadding {
     padding: 0;
 }
@@ -349,7 +334,7 @@ img.zoom-effect {
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: rgba(0,0,0,.9);
+    background-color: rgba(0, 0, 0, .9);
     transition: padding-top 100ms ease-out;
 }
 
@@ -373,11 +358,12 @@ img.zoom-effect {
 }
 
 // Index page
-
 .banner-img {
     height: 800px;
-    background-size: cover;
+    background-size: contain;
     background-position: center center;
+    background-color: #ffffff;
+    background-repeat: no-repeat;
 }
 
 .homepage-items {
@@ -408,7 +394,6 @@ img.zoom-effect {
         padding: 30px;
         overflow: hidden;
         text-align: center;
-
         .title {
             color: $primary_color;
             font-size: 7rem;
@@ -420,7 +405,7 @@ img.zoom-effect {
     }
 }
 
-@media (min-width: 768px) { 
+@media (min-width: 768px) {
     .homepage-items .article-wrapper:nth-child(4n+1) {
         .caption {
             text-align: left;
@@ -446,12 +431,10 @@ img.zoom-effect {
             width: 50%;
         }
     }
-
     .homepage-items .article-wrapper:nth-child(4n+3) {
         width: 50%;
         float: left;
     }
-
     .homepage-items .article-wrapper:nth-child(4n+4) {
         width: 50%;
         float: left;
@@ -468,7 +451,6 @@ img.zoom-effect {
     outline: 0;
     text-transform: uppercase;
     cursor: pointer;
-
     &:hover {
         color: #fff;
         text-decoration: none;
@@ -486,7 +468,6 @@ img.zoom-effect {
     transition: all 200ms ease;
     text-transform: uppercase;
     cursor: pointer;
-
     &:hover {
         color: #fff;
         background: #333;
@@ -499,20 +480,18 @@ img.zoom-effect {
 
 .instagram-followers {
     margin-bottom: 40px;
-
     .account {
         width: 25%;
         float: left;
         padding: 5px;
         word-break: break-all;
-
         img {
             width: 100%;
         }
     }
 }
 
-@media (max-width: 768px) { 
+@media (max-width: 768px) {
     .instagram-followers {
         .account {
             width: 33.33%;
@@ -526,7 +505,7 @@ img.zoom-effect {
     }
 }
 
-@media (min-width: 1200px) { 
+@media (min-width: 1200px) {
     .instagram-followers {
         .account {
             width: 12.5%;
@@ -566,23 +545,18 @@ img.zoom-effect {
     margin-bottom: 10px;
 }
 
-
-
 // Article
-
 .size-and-amount {
     position: relative;
     border-top: dashed 1px #000;
     border-bottom: dashed 1px #000;
     margin-bottom: 30px;
-
     .size-wrapper {
         height: 100%;
         border-right: dashed 1px #000;
         width: 66.66%;
         float: left;
         text-align: center;
-
         .article-size {
             cursor: pointer;
             &.active {
@@ -591,7 +565,6 @@ img.zoom-effect {
             }
         }
     }
-    
     .amount-wrapper {
         height: 100%;
         width: 33.33%;
@@ -600,7 +573,8 @@ img.zoom-effect {
     }
 }
 
-#article-amount-plus, #article-amount-minus {
+#article-amount-plus,
+#article-amount-minus {
     margin: -12px 0;
     padding: 10px;
     display: inline-block;
@@ -620,7 +594,8 @@ img.zoom-effect {
 #article-amount::-webkit-inner-spin-button {
     /* display: none; <- Crashes Chrome on hover */
     -webkit-appearance: none;
-    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+    margin: 0;
+    /* <-- Apparently some margin are still there even though it's hidden */
     display: none;
 }
 
@@ -631,7 +606,6 @@ img.zoom-effect {
 }
 
 // Search Page
-
 .search-term-wrapper {
     padding: 20px;
     background: $primary_color;
@@ -642,26 +616,28 @@ img.zoom-effect {
 #search-results {
     list-style: none;
     padding-left: 0;
-
-    li {
-
-    }
+    li {}
 }
 
 .no-search-results {
     background: #333;
     color: #fff;
     position: fixed;
-    bottom: 0; left: 0; right: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
     padding: 10px;
     text-align: center;
-
-    animation: bottom 600ms ease-in 5s 1 forwards; 
+    animation: bottom 600ms ease-in 5s 1 forwards;
 }
 
 @keyframes bottom {
-    from { bottom: 0 }
-    to { bottom: -200px }
+    from {
+        bottom: 0
+    }
+    to {
+        bottom: -200px
+    }
 }
 
 #search-hit-enter {
@@ -671,4 +647,92 @@ img.zoom-effect {
 
 #search-hit-enter.show {
     opacity: 1;
+}
+
+.message-container {
+    border: 2px solid #dedede;
+    background-color: #f1f1f1;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px 0;
+    max-width: 600px;
+    float: right;
+    clear: both;
+}
+
+.darker {
+    border-color: #ccc;
+    background-color: #ddd;
+    float: left;
+}
+
+.message-container::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.message-container img {
+    float: left;
+    max-width: 60px;
+    width: 100%;
+    margin-right: 20px;
+}
+
+.message-container img.right {
+    float: right;
+    margin-left: 20px;
+    margin-right: 0;
+}
+
+.time-right {
+    float: right;
+    color: #aaa;
+}
+
+.time-left {
+    float: left;
+    color: #999;
+}
+
+#message-input {
+    width: calc(100% - 85px);
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background: #fff;
+    font-size: 16px;
+    padding: 4px;
+    float: left;
+    display: block;
+}
+
+#input-wrapper button {
+    float: right;
+    width: 80px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background: #fff;
+    font-size: 16px;
+    padding: 4px;
+    display: block;
+}
+
+.style-bg {
+    background-size: cover;
+    background-color: #ccc;
+    background-position: center center;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+.style-bg * {
+    position: relative;
+}
+
+.style-bg::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: rgba(255, 255,255, 0.3);
 }
