@@ -25,8 +25,8 @@ theme_color: "#fb5353"
 sass:
   style: compressed
   sass_dir: _sass
-url: https://effyviolet.esstudio.site
-enforce_ssl: effyviolet.esstudio.site
+url: https://atc-chatbot.esstudio.site
+enforce_ssl: atc-chatbot.esstudio.site
 plugins:
 - jekyll-feed
 - jekyll-gist
